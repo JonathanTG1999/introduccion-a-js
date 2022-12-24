@@ -1,7 +1,3 @@
-const $botoncalcularTiempo = document.querySelector(`#calcular-tiempo-total`)
-const $botonagregarClases = document.querySelector(`#agregar-clases`)
-
-$botonagregarClases.onclick = function(){
 const $botoncalcularTiempo = document.querySelector(`#calcular-tiempo-total`);
 const $botonagregarClases = document.querySelector(`#agregar-clases`);
 
