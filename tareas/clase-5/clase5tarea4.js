@@ -6,14 +6,15 @@ const numeroMenor = conseguirNumeroMenor(numeros);
 const numeroMayor = conseguirNumeroMayor(numeros);
 const numeroMasRepetido = conseguirNumeroMasRepetido(numeros);
 
-const $numeropromedio = document.querySelector("#numero-promedio");
+const $numeroPromedio = document.querySelector("#numero-promedio");
 const $numeroMenor = document.querySelector("#numero-menor");
 const $numeroMayor = document.querySelector("#numero-mayor");
 const $numeroMasRepetido = document.querySelector("#numero-mas-repetido");
 
-$numeroMenor.innertext = conseguirNumeroMenor;
-$numeroMayor.innertext = conseguirNumeroMayor;
-$numeroMasRepetido.innertext = conseguirNumeroMasRepetido;
+$numeroPromedio.innerText = conseguirPromedio;
+$numeroMenor.innerText = conseguirNumeroMenor;
+$numeroMayor.innerText = conseguirNumeroMayor;
+$numeroMasRepetido.innerText = conseguirNumeroMasRepetido;
 
 function conseguirNumeros() {
   const numerosTotales = [];
