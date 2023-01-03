@@ -11,10 +11,10 @@ const $numeroMenor = document.querySelector("#numero-menor");
 const $numeroMayor = document.querySelector("#numero-mayor");
 const $numeroMasRepetido = document.querySelector("#numero-mas-repetido");
 
-$numeroPromedio.innerText = conseguirPromedio;
-$numeroMenor.innerText = conseguirNumeroMenor;
-$numeroMayor.innerText = conseguirNumeroMayor;
-$numeroMasRepetido.innerText = conseguirNumeroMasRepetido;
+$numeroPromedio.innerText = conseguirPromedio(numeros);
+$numeroMenor.innerText = conseguirNumeroMenor(numeros);
+$numeroMayor.innerText = conseguirNumeroMayor(numeros);
+$numeroMasRepetido.innerText = conseguirNumeroMasRepetido(numeros);
 
 function conseguirNumeros() {
   const numerosTotales = [];
