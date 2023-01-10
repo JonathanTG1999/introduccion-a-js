@@ -1,12 +1,11 @@
-const $body = document.querySelector(`body`);
-const $botonAñadir = document.querySelector(`#añadir`);
-const $botonRemover = document.querySelector(`#remover`);
-const $botonCalcularSalario = document.querySelector(`#calcular-salario`);
-const $salarios = document.querySelector(`#salarios`);
-const $formulario = document.querySelector(`#formulario`);
-const $resultados = document.querySelector(`#resultados`);
+const $botonAñadir = document.querySelector("#añadir");
+const $botonRemover = document.querySelector("#remover");
+const $botonCalcularSalario = document.querySelector("#calcular-salario");
+const $salarios = document.querySelector("#salarios");
+const $formulario = document.querySelector("#formulario");
+const $resultados = document.querySelector("#resultados");
 
-const $formularioTitulo = document.createElement(`h3`);
+const $formularioTitulo = document.createElement("h3");
 $formularioTitulo.classList.add = "formulario-titulo";
 $formularioTitulo.innerText =
   "Ingresar el salario anual de cada miembro de la familia";
@@ -22,8 +21,8 @@ $botonAñadir.onclick = function () {
 };
 
 $botonRemover.onclick = function () {
-  const $label = document.querySelectorAll(`.salario-label`);
-  const $input = document.querySelectorAll(`.salario-input`);
+  const $label = document.querySelectorAll(".salario-label");
+  const $input = document.querySelectorAll(".salario-input");
 
   $label[$label.length - 1].remove();
   $input[$input.length - 1].remove();
@@ -33,7 +32,7 @@ $botonRemover.onclick = function () {
 };
 
 $botonCalcularSalario.onclick = function () {
-  const salariosHTML = document.querySelectorAll(`.salario-input`);
+  const salariosHTML = document.querySelectorAll(".salario-input");
   const salarios = conseguirNumeros(salariosHTML);
 
   const salarioMayor = conseguirMayor(salarios);
@@ -41,11 +40,11 @@ $botonCalcularSalario.onclick = function () {
   const salarioPromedio = conseguirPromedio(salarios);
   const salarioPromedioMensual = conseguirPromedioMensual(salarioPromedio);
 
-  const $salarioMayor = document.querySelector(`#mayor-salario`);
-  const $salarioMenor = document.querySelector(`#menor-salario`);
-  const $salarioPromedio = document.querySelector(`#salario-promedio`);
+  const $salarioMayor = document.querySelector("#mayor-salario");
+  const $salarioMenor = document.querySelector("#menor-salario");
+  const $salarioPromedio = document.querySelector("#salario-promedio");
   const $salarioPromedioMensual = document.querySelector(
-    `#salario-promedio-mensual`
+    "#salario-promedio-mensual"
   );
   $salarioMayor.innerText = `El mayor salario anual es de: ${salarioMayor}`;
   $salarioMenor.innerText = `El menor salario anual es de: ${salarioMenor}`;
@@ -55,7 +54,7 @@ $botonCalcularSalario.onclick = function () {
 };
 
 function crearLabel(message, id) {
-  const $label = document.createElement(`label`);
+  const $label = document.createElement("label");
   $label.htmlFor = id;
   $label.id = id;
   $label.classList.add(id);
@@ -64,7 +63,7 @@ function crearLabel(message, id) {
 }
 
 function crearInput(id) {
-  const $input = document.createElement(`input`);
+  const $input = document.createElement("input");
   $input.type = "number";
   $input.id = id;
   $input.classList.add(id);
