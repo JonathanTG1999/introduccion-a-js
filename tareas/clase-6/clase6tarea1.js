@@ -3,9 +3,9 @@ const $botonCalcularEdad = document.querySelector("#calcular-edad");
 const $botonRemover = document.querySelector("#remover");
 
 $botonAgregarMiembros.onclick = function () {
-  const Miembros = Number(document.querySelector(`#miembros-familia`).value);
-  if (Miembros > 0) {
-    agregarMiembro(Miembros);
+  const miembros = Number(document.querySelector("#miembros-familia").value);
+  if (miembros > 0) {
+    agregar(miembros);
   } else {
     alert("El valor 0 no es valido.");
   }
@@ -13,9 +13,9 @@ $botonAgregarMiembros.onclick = function () {
   return false;
 };
 
-function agregarMiembro(numeroMiembros) {
+function agregar(miembros) {
   const $formulario = document.querySelector("#formulario");
-  for (let i = 1; i <= numeroMiembros; i = i + 1) {
+  for (let i = 1; i <= miembros; i = i + 1) {
     const label = document.createElement("label");
     label.textContent = "Edad";
     $formulario.appendChild(label);
@@ -26,36 +26,37 @@ function agregarMiembro(numeroMiembros) {
   }
 }
 
-function limpiarInput(numeroMiembros) {
-  for (let i = 0; i < numeroMiembros.length; i = i + 1) {
-    numeroMiembros[i].value = "";
+function borrar(miembros) {
+  for (let i = 0; i < miembros.length; i = i + 1) {
+    miembros[i].value = "";
   }
 }
 
 $botonRemover.onclick = function () {
-  const $label = document.querySelectorAll(`#formulario`);
-  const $input = document.querySelectorAll(`#edad-integrante`);
-
+  const $label = document.querySelectorAll("#formulario");
+  const $input = document.querySelectorAll("#edad-integrante");
   $label[$label.length - 1].remove();
   $input[$input.length - 1].remove();
-  limpiarInput($input);
+  borrar($input);
   return false;
 };
 
-$botonCalcularEdad.onclick = function () {
-  const $edades = document.querySelectorAll(`#edad-integrante`);
+$botonCalcularEdad.onclick = obtenerEdades;
+
+function obtenerEdades() {
+  const $edades = document.querySelectorAll("#edad-integrante");
   let edadIntegrante = [];
   for (let i = 0; i < $edades.length; i = i + 1) {
     const edades = Number($edades[i].value);
     edadIntegrante.push(edades);
   }
-  const $mayorEdad = document.querySelector(`#mayor-edad`);
+  const $mayorEdad = document.querySelector("#mayor-edad");
   $mayorEdad.textContent = `${calcularEdadMayor(edadIntegrante)}`;
-  const $menorEdad = document.querySelector(`#menor-edad`);
+  const $menorEdad = document.querySelector("#menor-edad");
   $menorEdad.textContent = `${calcularEdadMenor(edadIntegrante)}`;
-  const $promedioEdad = document.querySelector(`#promedio-edad`);
+  const $promedioEdad = document.querySelector("#promedio-edad");
   $promedioEdad.textContent = `${calcularEdadPromedio(edadIntegrante)}`;
-};
+}
 
 function calcularEdadPromedio(edadIntegrante) {
   let resultado = 0;
