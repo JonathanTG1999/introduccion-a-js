@@ -1,14 +1,16 @@
-const MesesEnUnAnio = 12;
-
-document.querySelector("#calcular-salario-mensual").onclick = function () {
+document.querySelector("#calcular-salario-mensual").onclick = function (event) {
   const salarioAnual = Number(document.querySelector("#salario-anual").value);
   const salarioMensual = calcularSalarioMensual(salarioAnual);
 
   document.querySelector("#salario-mensual").value = salarioMensual;
 
-  return false;
+  event.preventDefault();
 };
 
-function calcularSalarioMensual(salarioAnual) {
-  return salarioAnual / MesesEnUnAnio;
+function validarSalario(salario) {
+  if (salario === 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
