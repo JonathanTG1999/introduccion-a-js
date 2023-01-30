@@ -35,10 +35,11 @@ $botonCalcularSalario.onclick = function () {
   const salariosHTML = document.querySelectorAll(".salario-input");
   const salarios = conseguirNumeros(salariosHTML);
 
-  const salarioMayor = conseguirMayor(salarios);
-  const salarioMenor = conseguirMenor(salarios);
-  const salarioPromedio = conseguirPromedio(salarios);
-  const salarioPromedioMensual = conseguirPromedioMensual(salarioPromedio);
+  const salarioMayor = conseguirSalarioMayor(salarios);
+  const salarioMenor = conseguirSalarioMenor(salarios);
+  const salarioPromedio = conseguirSalarioPromedio(salarios);
+  const salarioPromedioMensual =
+    conseguirSalarioPromedioMensual(salarioPromedio);
 
   const $salarioMayor = document.querySelector("#mayor-salario");
   const $salarioMenor = document.querySelector("#menor-salario");
@@ -75,41 +76,7 @@ function conseguirNumeros(numbers) {
   for (i = 0; i < numbers.length; i = i + 1) {
     numerosTotales.push(Number(numbers[i].value));
   }
-
   return numerosTotales;
-}
-
-function conseguirMayor(numbers) {
-  let mayorNumero = numbers[0];
-  for (i = 1; i < numbers.length; i = i + 1) {
-    if (numbers[i] > mayorNumero) {
-      mayorNumero = numbers[i];
-    }
-  }
-  return mayorNumero;
-}
-
-function conseguirMenor(numbers) {
-  let menorNumero = numbers[0];
-  for (i = 1; i < numbers.length; i = i + 1) {
-    if (numbers[i] < menorNumero) {
-      menorNumero = numbers[0];
-    }
-  }
-  return menorNumero;
-}
-
-function conseguirPromedio(numbers) {
-  let promedio = 0;
-  for (i = 0; i < numbers.length; i = i + 1) {
-    promedio = promedio + numbers[i];
-  }
-  return promedio / numbers.length;
-}
-
-function conseguirPromedioMensual(salarioAnual) {
-  const MesesEnUnAnio = 12;
-  return salarioAnual / MesesEnUnAnio;
 }
 
 function limpiarInput(numbers) {
